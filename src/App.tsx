@@ -141,10 +141,10 @@ function App() {
       </div>
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-background/60 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 h-28 md:h-40 flex items-center justify-between">
-          <div className="flex items-center">
-            <img src="/logo_yatay.png" alt="SahaTakip" className="h-24 md:h-32 w-auto object-contain" />
+      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-background/75 backdrop-blur-2xl shadow-[0_1px_0_rgba(255,255,255,0.04)]">
+        <div className="max-w-7xl mx-auto h-20 sm:h-24 px-5 sm:px-6 lg:px-8 flex items-center justify-between">
+          <div className="flex items-center shrink-0 pr-4 transition-opacity duration-200 hover:opacity-90">
+            <img src="/logo_nav.png" alt="SahaTakip" className="block h-12 sm:h-14 md:h-16 lg:h-[68px] w-auto object-contain" />
           </div>
 
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-textMuted">
@@ -153,14 +153,14 @@ function App() {
             <a href="#solutions" className="hover:text-white transition-colors">Çözümler</a>
           </div>
           <div className="flex items-center gap-4">
-            <a href="#contact" className="bg-white text-black hover:bg-gray-100 px-4 py-2 rounded-lg text-sm font-semibold transition-colors shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+            <a href="#contact" className="bg-white text-black hover:bg-gray-100 px-4 py-2 rounded-lg text-sm font-semibold whitespace-nowrap transition-colors shadow-[0_0_20px_rgba(255,255,255,0.1)]">
               Demo Talep Et
             </a>
           </div>
         </div>
       </nav>
 
-      <main className="relative z-10 pt-48 pb-16">
+      <main className="relative z-10 pt-32 md:pt-40 pb-16">
         {/* HERO SECTION */}
         <section className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center mb-40">
           <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-xl">
