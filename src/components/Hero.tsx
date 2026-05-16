@@ -56,8 +56,8 @@ export default function Hero({ onOpenModal }: HeroProps) {
           className="flex justify-center mb-6"
         >
           <p 
-            className="text-[15px] font-semibold text-[#40E0D0] tracking-wide"
-            style={{ textShadow: '0 0 12px rgba(64, 224, 208, 0.4)' }}
+            className="text-[15px] font-semibold text-[#00d4ff] tracking-wide"
+            style={{ textShadow: '0 0 12px rgba(0, 212, 255, 0.6)' }}
           >
             Yeni AI Destekli Saha Operasyon Doğrulama Sistemi
           </p>

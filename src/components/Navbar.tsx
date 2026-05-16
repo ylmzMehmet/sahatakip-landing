@@ -32,12 +32,12 @@ export default function Navbar() {
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="flex items-center gap-1 bg-transparent border-none cursor-pointer group"
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand to-brand-dark flex items-center justify-center mr-2.5 shadow-[0_0_20px_rgba(0,212,255,0.25)]">
-            <MapPin className="w-4.5 h-4.5 text-white" />
+          <div className="w-9 h-9 rounded-xl bg-transparent flex items-center justify-center mr-2.5">
+            <MapPin className="w-6 h-6 text-[#00d4ff] drop-shadow-[0_0_8px_rgba(0,212,255,0.8)]" />
           </div>
           <span className="text-2xl font-black tracking-tighter">
             <span className="text-white">SAHA</span>
-            <span className="text-[#40E0D0] ml-1.5">TAKİP</span>
+            <span className="text-[#00d4ff] ml-1.5 drop-shadow-[0_0_8px_rgba(0,212,255,0.8)]">TAKİP</span>
           </span>
         </button>
 
