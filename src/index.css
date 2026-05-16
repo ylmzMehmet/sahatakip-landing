@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @layer base {
   html {
     font-family: 'Inter', system-ui, sans-serif;
@@ -13,49 +15,69 @@
   body {
     @apply m-0 min-h-screen overflow-x-hidden antialiased;
   }
+
+  ::selection {
+    background: rgba(6, 182, 212, 0.3);
+    color: white;
+  }
 }
 
 @layer components {
   .glass-panel {
     @apply bg-glass-gradient backdrop-blur-xl border border-border rounded-2xl;
   }
-  
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400;
+
+  .section-label {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold tracking-wider uppercase mb-6;
   }
 
-  .text-gradient-accent {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6;
   }
 
-  .btn-primary {
-    @apply relative inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white transition-all bg-primary border border-primary/50 rounded-lg hover:bg-primary/90 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)] focus:outline-none focus:ring-2 focus:ring-primary/50;
-  }
-
-  .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white transition-all bg-surface border border-border rounded-lg hover:bg-surfaceHover hover:border-border/80 focus:outline-none focus:ring-2 focus:ring-white/10;
+  .section-desc {
+    @apply text-lg text-textMuted max-w-2xl mx-auto leading-relaxed;
   }
 }
 
-/* Custom glow effects */
-.glow-accent {
+/* Animated gradient border */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
   position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, rgba(0,0,0,0) 70%);
-  filter: blur(60px);
-  z-index: -1;
-  border-radius: 50%;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(6,182,212,0.4), transparent, rgba(34,211,238,0.2));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
   pointer-events: none;
 }
 
-.glow-primary {
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(0,0,0,0) 70%);
-  filter: blur(60px);
-  z-index: -1;
-  border-radius: 50%;
-  pointer-events: none;
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050510;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.5);
+}
+
+/* Counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-count {
+  animation: countUp 0.8s ease-out forwards;
 }
