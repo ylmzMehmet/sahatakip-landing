@@ -1,73 +1,88 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Brain, TrendingUp, Camera, Shield, Sparkles } from 'lucide-react';
+import { Brain, Shield, TrendingUp, Camera, Sparkles, Cpu } from 'lucide-react';
 
 const aiFeatures = [
   {
     icon: <Shield className="w-5 h-5" />,
-    title: 'Personel Güvenilirlik Puanı',
+    title: 'Güvenilirlik Puanı',
     desc: 'Her personelin anomali geçmişi, rota uyumu ve teslimat doğruluğu analiz edilerek güvenilirlik skoru hesaplanır.',
+    gradient: 'from-brand to-blue-500',
   },
   {
     icon: <TrendingUp className="w-5 h-5" />,
     title: 'Stok Tahmin Motoru',
-    desc: 'Geçmiş satış ve teslimat verilerine dayalı olarak stok ihtiyaçlarını önceden tahmin eder, fire oranını minimize eder.',
+    desc: 'Geçmiş satış ve teslimat verilerine dayalı stok ihtiyaçlarını önceden tahmin eder, fire oranını minimize eder.',
+    gradient: 'from-emerald-400 to-teal-500',
   },
   {
     icon: <Camera className="w-5 h-5" />,
     title: 'Fotoğraf Doğrulama',
-    desc: 'Aynı fotoğrafın birden fazla kullanılıp kullanılmadığını tespit eder. Duplike ve sahte kanıtları otomatik yakalar.',
+    desc: 'Aynı fotoğrafın birden fazla kullanılıp kullanılmadığını tespit eder. Duplike ve sahte kanıtları yakalar.',
+    gradient: 'from-amber-400 to-orange',
   },
   {
     icon: <Sparkles className="w-5 h-5" />,
     title: 'Anomali Kalıp Tespiti',
-    desc: 'Tekrarlayan anomali kalıplarını tespit ederek sistematik kural ihlallerini ve organizasyonel riskleri ortaya çıkarır.',
+    desc: 'Tekrarlayan anomali kalıplarını tespit ederek sistematik kural ihlallerini ve riskleri ortaya çıkarır.',
+    gradient: 'from-violet-400 to-purple-500',
   },
 ];
 
 export default function AICenter() {
   return (
-    <section id="ai" className="max-w-7xl mx-auto px-6 mb-20 lg:mb-32">
-      <div className="relative bg-gradient-to-br from-surface via-[#0d0d20] to-surface border border-white/5 rounded-3xl p-8 md:p-14 overflow-hidden">
-        {/* Decorative */}
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-violet-500/10 blur-[120px] rounded-full pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-primary/10 blur-[100px] rounded-full pointer-events-none" />
+    <section id="ai" className="relative py-20 lg:py-28 overflow-hidden">
+      {/* BG */}
+      <div className="absolute inset-0 bg-gradient-to-b from-bg via-[#08081a] to-bg pointer-events-none" />
+      <div className="absolute top-[10%] right-[-10%] w-[600px] h-[600px] bg-violet-600/[0.04] blur-[160px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-[10%] left-[-5%] w-[400px] h-[400px] bg-brand/[0.04] blur-[120px] rounded-full pointer-events-none" />
 
-        <div className="relative z-10">
-          <div className="text-center mb-14">
-            <div className="section-label">
-              <Brain className="w-3.5 h-3.5" /> AI Analiz Merkezi
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Yapay zeka ile{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-primary to-accent">
-                proaktif saha yönetimi
-              </span>
-            </h2>
-            <p className="text-textMuted text-base max-w-2xl mx-auto">
-              Makine öğrenmesi algoritmaları ile personel davranışlarını analiz edin, stok tahminleri yapın 
-              ve anomali kalıplarını sorun oluşmadan tespit edin.
-            </p>
+      <div className="relative max-w-[1320px] mx-auto px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-violet-500/[0.08] border border-violet-500/[0.15] text-violet-400 text-[11px] font-bold tracking-widest uppercase mb-5">
+            <Cpu className="w-3 h-3" />
+            Yapay Zeka
           </div>
+          <h2 className="text-3xl md:text-4xl lg:text-[2.8rem] font-extrabold tracking-tight mb-5">
+            AI ile{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-brand to-brand-light">
+              proaktif yönetim
+            </span>
+          </h2>
+          <p className="text-muted text-lg max-w-2xl mx-auto">
+            Makine öğrenmesi ile personel davranışlarını analiz edin, stok tahminleri yapın ve
+            anomalileri sorun oluşmadan tespit edin.
+          </p>
+        </motion.div>
 
-          <div className="grid sm:grid-cols-2 gap-6">
-            {aiFeatures.map((feature, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group bg-white/[0.03] border border-white/5 rounded-2xl p-6 hover:border-violet-500/20 hover:bg-white/[0.05] transition-all duration-300"
-              >
-                <div className="w-10 h-10 rounded-xl bg-violet-500/10 flex items-center justify-center text-violet-400 mb-4 group-hover:bg-violet-500/20 transition-colors">
-                  {feature.icon}
+        {/* AI Feature Cards */}
+        <div className="grid sm:grid-cols-2 gap-5">
+          {aiFeatures.map((f, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="group relative bg-white/[0.015] border border-white/[0.04] rounded-2xl p-7 hover:bg-white/[0.03] hover:border-violet-500/[0.12] transition-all duration-500 overflow-hidden"
+            >
+              {/* Hover glow */}
+              <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${f.gradient} rounded-full blur-[80px] opacity-0 group-hover:opacity-[0.06] transition-opacity duration-700 pointer-events-none`} />
+
+              <div className="relative z-10">
+                <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${f.gradient} flex items-center justify-center text-white mb-5 shadow-lg opacity-90`}>
+                  {f.icon}
                 </div>
-                <h4 className="text-base font-semibold text-white mb-2">{feature.title}</h4>
-                <p className="text-sm text-textMuted leading-relaxed">{feature.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+                <h4 className="text-[15px] font-semibold text-white mb-2.5">{f.title}</h4>
+                <p className="text-[13px] text-muted leading-relaxed">{f.desc}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ImageModalProps {
   open: boolean;
@@ -12,6 +12,8 @@ interface ImageModalProps {
 }
 
 export default function ImageModal({ open, images, index, onClose, onNext, onPrev }: ImageModalProps) {
+  if (!open) return null;
+
   return (
     <AnimatePresence>
       {open && (
@@ -19,54 +21,64 @@ export default function ImageModal({ open, images, index, onClose, onNext, onPre
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-10"
+          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex items-center justify-center"
           onClick={onClose}
         >
+          {/* Close */}
           <button
             onClick={onClose}
-            className="absolute top-6 right-6 p-3 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors z-[110]"
+            className="absolute top-5 right-5 z-[110] w-10 h-10 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all"
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5" />
           </button>
 
+          {/* Prev */}
           <button
             onClick={(e) => { e.stopPropagation(); onPrev(); }}
-            className="absolute left-4 md:left-10 p-4 bg-white/5 hover:bg-white/10 rounded-full text-white transition-colors z-[110]"
+            className="absolute left-4 md:left-8 z-[110] w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all"
           >
-            <span className="text-3xl">←</span>
+            <ChevronLeft className="w-6 h-6" />
           </button>
 
+          {/* Next */}
           <button
             onClick={(e) => { e.stopPropagation(); onNext(); }}
-            className="absolute right-4 md:right-10 p-4 bg-white/5 hover:bg-white/10 rounded-full text-white transition-colors z-[110]"
+            className="absolute right-4 md:right-8 z-[110] w-12 h-12 rounded-xl bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/70 hover:text-white transition-all"
           >
-            <span className="text-3xl">→</span>
+            <ChevronRight className="w-6 h-6" />
           </button>
 
-          <div className="relative w-full max-w-6xl h-full flex items-center justify-center" onClick={(e) => e.stopPropagation()}>
+          {/* Image */}
+          <div className="relative w-full max-w-6xl h-full flex items-center justify-center p-8 md:p-16" onClick={(e) => e.stopPropagation()}>
             <AnimatePresence mode="wait">
               <motion.img
                 key={index}
                 src={images[index]}
-                initial={{ opacity: 0, scale: 0.95 }}
+                initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 1.05 }}
-                transition={{ duration: 0.3 }}
-                className="max-w-full max-h-full object-contain shadow-[0_0_100px_rgba(6,182,212,0.15)] rounded-lg"
-                alt={`Görüntü ${index + 1}`}
+                exit={{ opacity: 0, scale: 1.04 }}
+                transition={{ duration: 0.25 }}
+                className="max-w-full max-h-full object-contain rounded-xl shadow-[0_0_80px_rgba(0,212,255,0.1)]"
+                alt=""
               />
             </AnimatePresence>
 
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            {/* Dots */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5">
               {images.map((_, i) => (
                 <div
                   key={i}
-                  className={`h-1.5 rounded-full transition-all ${
-                    i === index ? 'w-8 bg-primary' : 'w-2 bg-white/20'
+                  className={`rounded-full transition-all duration-400 ${
+                    i === index ? 'w-6 h-1.5 bg-brand' : 'w-1.5 h-1.5 bg-white/15'
                   }`}
                 />
               ))}
             </div>
+          </div>
+
+          {/* Counter */}
+          <div className="absolute bottom-5 right-8 text-[12px] text-white/30 font-mono">
+            {index + 1} / {images.length}
           </div>
         </motion.div>
       )}

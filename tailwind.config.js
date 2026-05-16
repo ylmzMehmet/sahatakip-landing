@@ -7,42 +7,61 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#050510',
-        surface: '#0c0c1a',
-        surfaceHover: '#14142a',
-        border: 'rgba(255, 255, 255, 0.08)',
-        primary: '#06b6d4',
-        accent: '#22d3ee',
-        emerald: '#10b981',
-        amber: '#f59e0b',
-        textMain: '#ffffff',
-        textMuted: '#94a3b8',
-        textDim: '#64748b',
+        bg: {
+          DEFAULT: '#06080d',
+          card: '#0b0f18',
+          elevated: '#111827',
+        },
+        brand: {
+          DEFAULT: '#00d4ff',
+          dark: '#0891b2',
+          light: '#67e8f9',
+          glow: 'rgba(0, 212, 255, 0.15)',
+        },
+        orange: '#ff6b35',
+        surface: '#0d1117',
+        muted: '#8b95a5',
+        dim: '#5b6478',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'glass-gradient': 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%)',
+        mono: ['JetBrains Mono', 'monospace'],
       },
       animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'float-delayed': 'float 6s ease-in-out 3s infinite',
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'gradient-x': 'gradient-x 15s ease infinite',
-        'count-up': 'count-up 2s ease-out forwards',
+        'marquee': 'marquee 40s linear infinite',
+        'marquee-reverse': 'marquee-reverse 40s linear infinite',
+        'spin-slow': 'spin 20s linear infinite',
+        'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+        'float-y': 'float-y 6s ease-in-out infinite',
+        'shimmer': 'shimmer 2s linear infinite',
+        'bounce-short': 'bounce-short 1s ease-in-out infinite',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
         },
-        'gradient-x': {
-          '0%, 100%': { backgroundPosition: '0% 50%' },
-          '50%': { backgroundPosition: '100% 50%' },
+        'marquee-reverse': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
         },
-      }
+        'pulse-glow': {
+          '0%, 100%': { opacity: 0.4 },
+          '50%': { opacity: 1 },
+        },
+        'float-y': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-15px)' },
+        },
+        'shimmer': {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+        'bounce-short': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-4px)' },
+        },
+      },
     },
   },
   plugins: [],

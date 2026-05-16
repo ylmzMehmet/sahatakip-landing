@@ -1,71 +1,101 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Route, MapPin, Target, Fingerprint, Settings } from 'lucide-react';
+import { Route, MapPin, Target, Fingerprint, ArrowRight } from 'lucide-react';
 
 const steps = [
   {
-    step: '01',
+    num: '01',
     title: 'Rota Atanır',
-    desc: 'Yönetici günlük rotaları belirler, sistem optimize eder ve mobil uygulamaya düşer.',
-    icon: <Route className="w-5 h-5" />,
+    desc: 'Yönetici günlük rotaları belirler. Sistem optimize eder ve mobil uygulamaya düşer.',
+    icon: <Route className="w-6 h-6" />,
+    color: 'text-brand',
+    bg: 'bg-brand/10',
+    border: 'border-brand/20',
   },
   {
-    step: '02',
+    num: '02',
     title: 'Sahaya İntikal',
-    desc: 'Personel markete gider. Canlı konum üzerinden merkeze anlık veri akışı başlar.',
-    icon: <MapPin className="w-5 h-5" />,
+    desc: 'Personel teslimat noktasına gider. Canlı konum üzerinden merkeze anlık veri akışı başlar.',
+    icon: <MapPin className="w-6 h-6" />,
+    color: 'text-emerald-400',
+    bg: 'bg-emerald-400/10',
+    border: 'border-emerald-400/20',
   },
   {
-    step: '03',
+    num: '03',
     title: 'GPS Doğrulama',
-    desc: 'Markete 50m yaklaşmadan işlem yapılamaz. Uzaktan "gittim" bildirimi engellenir.',
-    icon: <Target className="w-5 h-5" />,
+    desc: 'Noktaya 50m yaklaşmadan işlem yapılamaz. Uzaktan sahte "gittim" bildirimi engellenir.',
+    icon: <Target className="w-6 h-6" />,
+    color: 'text-amber-400',
+    bg: 'bg-amber-400/10',
+    border: 'border-amber-400/20',
   },
   {
-    step: '04',
+    num: '04',
     title: 'Kanıtlı Teslimat',
     desc: 'Sadece canlı kamera ile fotoğraf çekilir. Galeri erişimi teknik olarak yasaklıdır.',
-    icon: <Fingerprint className="w-5 h-5" />,
+    icon: <Fingerprint className="w-6 h-6" />,
+    color: 'text-violet-400',
+    bg: 'bg-violet-400/10',
+    border: 'border-violet-400/20',
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="max-w-7xl mx-auto px-6 mb-20 lg:mb-32">
-      <div className="text-center mb-16">
-        <div className="section-label">
-          <Settings className="w-3.5 h-3.5" /> İş Akışı
+    <section id="how-it-works" className="relative py-20 lg:py-28">
+      <div className="max-w-[1320px] mx-auto px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16 lg:mb-20"
+        >
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand/[0.08] border border-brand/[0.15] text-brand text-[11px] font-bold tracking-widest uppercase mb-5">
+            İş Akışı
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-[2.8rem] font-extrabold tracking-tight mb-5">
+            4 adımda operasyon doğrulama
+          </h2>
+          <p className="text-muted text-lg max-w-xl mx-auto">
+            Basit ama manipüle edilemez iş akışı ile saha operasyonlarınızı kanıtlayın.
+          </p>
+        </motion.div>
+
+        {/* Steps */}
+        <div className="grid md:grid-cols-4 gap-6 relative">
+          {/* Connector Line (Desktop) */}
+          <div className="hidden md:block absolute top-[3.2rem] left-[12%] right-[12%] h-px">
+            <div className="w-full h-full bg-gradient-to-r from-brand/30 via-emerald-400/30 via-amber-400/30 to-violet-400/30" />
+          </div>
+
+          {steps.map((step, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.12 }}
+              className="relative z-10"
+            >
+              <div className="flex flex-col items-center text-center">
+                {/* Icon Circle */}
+                <div className={`w-16 h-16 rounded-2xl ${step.bg} border ${step.border} flex items-center justify-center ${step.color} mb-6 shadow-lg`}>
+                  {step.icon}
+                </div>
+
+                {/* Step Number */}
+                <span className={`text-[11px] font-bold ${step.color} tracking-[0.25em] uppercase font-mono mb-3`}>
+                  ADIM {step.num}
+                </span>
+
+                <h4 className="text-lg font-bold text-white mb-3">{step.title}</h4>
+                <p className="text-[13px] text-muted leading-relaxed max-w-[260px]">{step.desc}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
-        <h2 className="section-title">Operasyon nasıl doğrulanır?</h2>
-        <p className="section-desc">
-          Saha personeli için tasarlanmış basit ama manipüle edilemez iş akışı. 4 adımda operasyon doğrulama.
-        </p>
-      </div>
-
-      <div className="grid md:grid-cols-4 gap-8 relative">
-        {/* Connecting Line */}
-        <div className="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-[1px] bg-gradient-to-r from-transparent via-primary/30 to-transparent z-0" />
-
-        {steps.map((s, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.15 }}
-            className="relative z-10 flex flex-col items-center text-center group"
-          >
-            <div className="w-14 h-14 rounded-2xl bg-surface border border-white/10 flex items-center justify-center text-primary mb-6 relative overflow-hidden group-hover:border-primary/40 transition-all duration-300 shadow-lg shadow-black/40 group-hover:shadow-primary/10">
-              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity" />
-              {s.icon}
-            </div>
-            <div className="text-xs font-bold text-primary mb-3 tracking-[0.2em] uppercase font-mono">
-              ADIM {s.step}
-            </div>
-            <h4 className="text-lg font-semibold text-white mb-3">{s.title}</h4>
-            <p className="text-sm text-textMuted leading-relaxed max-w-[240px]">{s.desc}</p>
-          </motion.div>
-        ))}
       </div>
     </section>
   );

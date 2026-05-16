@@ -2,82 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @layer base {
   html {
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: theme('colors.background');
-    color: theme('colors.textMain');
+    background-color: #06080d;
+    color: #ffffff;
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-  
+
   body {
-    @apply m-0 min-h-screen overflow-x-hidden antialiased;
+    @apply m-0 min-h-screen overflow-x-hidden;
   }
 
   ::selection {
-    background: rgba(6, 182, 212, 0.3);
-    color: white;
+    background: rgba(0, 212, 255, 0.25);
+    color: #fff;
   }
 }
 
-@layer components {
-  .glass-panel {
-    @apply bg-glass-gradient backdrop-blur-xl border border-border rounded-2xl;
-  }
+/* ===== Premium Scrollbar ===== */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #06080d; }
+::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.2); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,212,255,0.4); }
 
-  .section-label {
-    @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs font-semibold tracking-wider uppercase mb-6;
-  }
-
-  .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6;
-  }
-
-  .section-desc {
-    @apply text-lg text-textMuted max-w-2xl mx-auto leading-relaxed;
-  }
+/* ===== Noise Overlay ===== */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  mix-blend-mode: overlay;
 }
 
-/* Animated gradient border */
-.gradient-border {
+/* ===== Gradient Border ===== */
+.glow-border {
   position: relative;
+  isolation: isolate;
 }
-.gradient-border::before {
+.glow-border::before {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: -1px;
   border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(6,182,212,0.4), transparent, rgba(34,211,238,0.2));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  background: linear-gradient(135deg, rgba(0,212,255,0.3) 0%, transparent 40%, transparent 60%, rgba(0,212,255,0.15) 100%);
+  z-index: -1;
   pointer-events: none;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #050510;
-}
-::-webkit-scrollbar-thumb {
-  background: rgba(6, 182, 212, 0.3);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(6, 182, 212, 0.5);
+/* ===== Shimmer Text ===== */
+.shimmer-text {
+  background: linear-gradient(
+    110deg,
+    #ffffff 0%,
+    #ffffff 35%,
+    #00d4ff 50%,
+    #ffffff 65%,
+    #ffffff 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s ease-in-out infinite;
 }
 
-/* Counter animation */
-@keyframes countUp {
-  from { opacity: 0; transform: translateY(10px); }
+/* ===== Stat Counter ===== */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+.reveal-up {
+  animation: revealUp 0.6s ease-out forwards;
+}
 
-.animate-count {
-  animation: countUp 0.8s ease-out forwards;
+/* ===== Floating Badge ===== */
+.floating-badge {
+  animation: float-y 6s ease-in-out infinite;
+}
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
 }
