@@ -47,7 +47,13 @@ function App() {
   const nextModalImage = () => setModalIndex((prev) => (prev + 1) % modalImages.length);
   const prevModalImage = () => setModalIndex((prev) => (prev - 1 + modalImages.length) % modalImages.length);
 
+  const [isMobile, setIsMobile] = useState(typeof window !== 'undefined' ? window.innerWidth < 768 : false);
+
   useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     const pcInterval = setInterval(() => {
       if (!modalOpen) setCurrentPcImage((prev) => (prev + 1) % pcImages.length);
     }, 4000);
@@ -60,6 +66,7 @@ function App() {
     }, 5000);
 
     return () => {
+      window.removeEventListener('resize', checkMobile);
       clearInterval(pcInterval);
       clearInterval(mobileInterval);
     };
@@ -71,7 +78,7 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-background text-textMain font-sans overflow-hidden selection:bg-primary/30">
+    <div id="top" className="relative min-h-screen bg-background text-textMain font-sans overflow-x-hidden selection:bg-primary/30">
       {/* Modal Slider */}
       <AnimatePresence>
         {modalOpen && (
@@ -138,14 +145,26 @@ function App() {
         <div className="absolute top-[30%] right-[-10%] w-[30%] h-[50%] bg-accent/10 blur-[120px] rounded-full mix-blend-screen" />
         <div className="absolute bottom-[-20%] left-[20%] w-[50%] h-[40%] bg-primary/10 blur-[100px] rounded-full mix-blend-screen" />
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
       </div>
 
       {/* Navbar */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-background/75 backdrop-blur-2xl shadow-[0_1px_0_rgba(255,255,255,0.04)]">
-        <div className="max-w-7xl mx-auto h-20 sm:h-24 px-5 sm:px-6 lg:px-8 flex items-center justify-between">
-          <div className="flex items-center shrink-0 pr-4 transition-opacity duration-200 hover:opacity-90">
-            <img src="/logo_nav.png" alt="SahaTakip" className="block h-12 sm:h-14 md:h-16 lg:h-[68px] w-auto object-contain" />
-          </div>
+        <div className="max-w-7xl mx-auto h-16 sm:h-20 px-5 sm:px-6 lg:px-8 flex items-center justify-between">
+          <button 
+            type="button"
+            onClick={() => {
+              document.documentElement.scrollTop = 0;
+              document.body.scrollTop = 0;
+              window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+            }}
+            className="relative z-[60] flex items-center shrink-0 pr-4 transition-opacity duration-200 hover:opacity-90 bg-transparent border-none outline-none cursor-pointer"
+          >
+            <div className="flex items-center gap-2 font-black text-2xl sm:text-3xl tracking-tighter uppercase">
+              <span className="text-white">SAHA</span>
+              <span className="text-primary">TAKİP</span>
+            </div>
+          </button>
 
           <div className="hidden md:flex items-center gap-8 text-sm font-medium text-textMuted">
             <a href="#features" className="hover:text-white transition-colors">Özellikler</a>
@@ -160,18 +179,21 @@ function App() {
         </div>
       </nav>
 
-      <main className="relative z-10 pt-32 md:pt-40 pb-16">
+      <main className="relative z-10 pt-24 md:pt-32 pb-16">
         {/* HERO SECTION */}
-        <section className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center mb-40">
-          <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-xl">
-            <div className="relative inline-block mb-10 group">
+        <section className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center mb-10 lg:mb-40">
+          <motion.div initial="hidden" animate="visible" variants={fadeUp} className="max-w-xl flex flex-col items-center md:items-start text-center md:text-left">
+            <div className="relative w-full mb-10 group">
               {/* Corner Brackets */}
               <div className="absolute -top-4 -left-4 w-8 h-8 border-t-2 border-l-2 border-primary/40 rounded-tl-lg" />
               <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b-2 border-r-2 border-primary/40 rounded-br-lg" />
               
-              <div className="relative flex flex-col md:flex-row items-baseline gap-2 md:gap-5">
+              <div 
+                className="relative flex flex-row items-baseline justify-center md:justify-start gap-3 md:gap-5 w-full cursor-pointer group/title"
+                onClick={() => document.getElementById('top')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 <div className="relative">
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase text-white leading-none">
+                  <h2 className="text-[10vw] xs:text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter uppercase text-white leading-none group-hover/title:text-white/90 transition-colors">
                     SAHA
                   </h2>
                   <motion.div 
@@ -181,7 +203,7 @@ function App() {
                   />
                 </div>
                 <div className="relative">
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-primary leading-none drop-shadow-[0_0_30px_rgba(6,182,212,0.3)]">
+                  <h2 className="text-[10vw] xs:text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-b from-cyan-400 to-primary leading-none drop-shadow-[0_0_30px_rgba(6,182,212,0.3)] group-hover/title:opacity-90 transition-opacity">
                     TAKİP
                   </h2>
                   {/* Vertical Scan Line */}
@@ -194,14 +216,14 @@ function App() {
               </div>
 
               {/* Status Indicator Underline */}
-              <div className="mt-4 flex items-center gap-3">
+              <div className="mt-4 flex items-center justify-center md:justify-start gap-3">
                 <motion.div 
                   className="h-1 bg-primary rounded-full"
                   initial={{ width: 0 }}
                   animate={{ width: '100%' }}
                   transition={{ duration: 1.5, delay: 0.5 }}
                 />
-                <span className="text-[10px] font-mono text-primary tracking-[0.3em] uppercase whitespace-nowrap opacity-70">
+                <span className="text-[10px] font-mono text-primary tracking-[0.1em] sm:tracking-[0.3em] uppercase whitespace-nowrap opacity-70">
                   Operational System v2.0
                 </span>
               </div>
@@ -213,14 +235,14 @@ function App() {
               </span>
               Saha Operasyon Doğrulama Sistemi
             </div>
-            <h1 className="text-5xl lg:text-[4rem] font-bold leading-[1.1] tracking-tight mb-6">
-              Saha ekipleriniz gerçekten <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-primary to-accent">tüm noktalara uğruyor mu?</span>
+            <h1 className="text-3xl sm:text-4xl lg:text-[4rem] font-bold leading-[1.1] tracking-tight mb-6 text-center md:text-left">
+              Saha ekipleriniz gerçekten 
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-primary to-accent block sm:inline"> tüm noktalara uğruyor mu?</span>
             </h1>
-            <p className="text-lg text-textMuted mb-10 leading-relaxed">
+            <p className="text-lg text-textMuted mb-10 leading-relaxed text-center md:text-left mx-auto md:mx-0">
               Dağıtım ve saha operasyonlarınızı varsayımlarla değil, <strong>matematiksel kanıtlarla</strong> yönetin. GPS doğrulaması ve zorunlu canlı fotoğraf ile operasyonel körlüğü bitirin.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap justify-center md:justify-start gap-4">
               <a href="#contact" className="bg-primary hover:bg-primary/90 text-white px-6 py-3.5 rounded-xl text-sm font-semibold transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] flex items-center gap-2">
                 Pilot Kullanım Başlat <ArrowRight className="w-4 h-4" />
               </a>
@@ -234,7 +256,7 @@ function App() {
             initial={{ opacity: 0, x: 20 }} 
             animate={{ opacity: 1, x: 0 }} 
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative lg:h-[750px] flex items-center lg:w-[130%] lg:-mr-[30%]"
+            className="relative h-auto lg:h-[750px] flex items-center lg:w-[130%] lg:-mr-[30%] mt-10 lg:mt-0"
           >
             {/* Decorative Grid */}
             <div className="absolute inset-0 bg-[url('https://linear.app/cdn-cgi/imagedelivery/fO02fVymILecsOASEuiZqw/6df1bc59-7153-4dc7-a3f2-1fb0dbfbfb00/public')] bg-center bg-no-repeat opacity-20 pointer-events-none"></div>
@@ -243,35 +265,33 @@ function App() {
             <div className="relative w-full z-10 flex flex-col items-center">
               {/* Screen / Browser Window */}
               <div 
-                className="rounded-t-lg border-x-[10px] border-t-[10px] border-[#1a1a1a] bg-[#0a0a0a] overflow-hidden shadow-[0_40px_80px_-15px_rgba(0,0,0,0.6)] flex flex-col w-full h-[560px] relative ring-1 ring-white/5 cursor-pointer group"
+                className="rounded-t-lg border-x-[4px] md:border-x-[10px] border-t-[4px] md:border-t-[10px] border-[#1a1a1a] bg-[#0a0a0a] overflow-hidden shadow-[0_40px_80px_-15px_rgba(0,0,0,0.6)] flex flex-col w-full aspect-[16/10] lg:h-[560px] relative ring-1 ring-white/5 cursor-pointer group"
                 onClick={() => openModal(pcImages, currentPcImage)}
               >
-                <div className="h-10 bg-[#141414] border-b border-white/5 flex items-center px-5 gap-4">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]"></div>
-                    <div className="w-2.5 h-2.5 rounded-full bg-[#27c93f]"></div>
+                <div className="h-6 md:h-10 bg-[#141414] border-b border-white/5 flex items-center px-3 md:px-5 gap-2 md:gap-4">
+                  <div className="flex gap-1 md:gap-1.5">
+                    <div className="w-1.5 h-1.5 md:w-2.5 md:h-2.5 rounded-full bg-[#ff5f56]"></div>
+                    <div className="w-1.5 h-1.5 md:w-2.5 md:h-2.5 rounded-full bg-[#ffbd2e]"></div>
+                    <div className="w-1.5 h-1.5 md:w-2.5 md:h-2.5 rounded-full bg-[#27c93f]"></div>
                   </div>
                   <div className="flex-1 flex justify-center">
-                    <div className="bg-black/50 border border-white/5 rounded-md text-[10px] text-textMuted px-5 py-1 flex items-center gap-2 font-mono">
-                      <Lock className="w-3 h-3 text-primary" />
+                    <div className="bg-black/50 border border-white/5 rounded-md text-[8px] md:text-[10px] text-textMuted px-3 md:px-5 py-0.5 md:py-1 flex items-center gap-1 md:gap-2 font-mono">
+                      <Lock className="w-2 h-2 md:w-3 md:h-3 text-primary" />
                       sahatakip.net/dashboard
                     </div>
                   </div>
                 </div>
                 
                 <div className="flex-1 relative overflow-hidden bg-[#050505]">
-                  <AnimatePresence mode="wait">
-                    <motion.img
-                      key={currentPcImage}
-                      src={pcImages[currentPcImage]}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.4 }}
-                      className="absolute inset-0 w-full h-full object-contain"
+                  {pcImages.map((src, idx) => (
+                    <img
+                      key={src}
+                      src={src}
+                      className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
+                        idx === currentPcImage ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                      }`}
                     />
-                  </AnimatePresence>
+                  ))}
                   
                   {/* Click Overlay */}
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -286,9 +306,9 @@ function App() {
               </div>
 
               {/* Laptop Base - Sharp Edge */}
-              <div className="relative w-[110%] h-6 bg-[#1a1a1a] rounded-b-md border-x border-b border-white/10 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] overflow-hidden">
-                <div className="absolute top-0 inset-x-0 h-1 bg-white/10"></div>
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-4 bg-[#0a0a0a] rounded-b-lg border-x border-b border-white/5 shadow-inner"></div>
+              <div className="relative w-[105%] md:w-[110%] h-2 md:h-6 bg-[#1a1a1a] rounded-b-md border-x border-b border-white/10 shadow-[0_20px_40px_-10px_rgba(0,0,0,0.5)] overflow-hidden">
+                <div className="absolute top-0 inset-x-0 h-0.5 md:h-1 bg-white/10"></div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 md:w-40 h-2 md:h-4 bg-[#0a0a0a] rounded-b-lg border-x border-b border-white/5 shadow-inner"></div>
               </div>
               
               {/* Ground Shadow */}
@@ -301,12 +321,8 @@ function App() {
         </section>
 
         {/* TRUST METRICS */}
-        <section className="border-y border-white/5 bg-surface/30 backdrop-blur-sm py-16 mb-40">
-          <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/5">
-            <div className="text-center px-4">
-              <div className="text-4xl font-bold text-white mb-2 tracking-tight">10M+</div>
-              <div className="text-sm text-textMuted font-medium">Doğrulanan Ziyaret</div>
-            </div>
+        <section className="border-y border-white/5 bg-surface/30 backdrop-blur-sm py-6 lg:py-16 mb-10 lg:mb-40">
+          <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:divide-x divide-white/5">
             <div className="text-center px-4">
               <div className="text-4xl font-bold text-white mb-2 tracking-tight">%99.9</div>
               <div className="text-sm text-textMuted font-medium">Teslimat Doğrulama</div>
@@ -352,9 +368,8 @@ function App() {
         </section>
 
         {/* MOBILE MOCKUP SHOWCASE */}
-        <section className="max-w-7xl mx-auto px-6 mb-40">
+        <section id="features" className="max-w-7xl mx-auto px-6 mb-40">
            <div className="bg-surface/50 border border-white/5 rounded-3xl p-8 md:p-16 overflow-hidden relative shadow-2xl">
-              <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
               
               <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
                 <div>
@@ -378,30 +393,28 @@ function App() {
                 </div>
 
                 {/* Mobile Phones Container */}
-                <div className="relative h-[700px] w-full flex justify-center items-center">
-                  {/* Phone 1 (Arkada) */}
+                <div className="relative h-[600px] sm:h-[650px] md:h-[700px] w-full flex justify-center items-center">
+                  {/* Phone 1 (Arkada) - Hidden on Mobile */}
                   <motion.div 
                     initial={{ x: 60, y: -30, rotate: 5, opacity: 0 }}
                     whileInView={{ x: 50, y: -30, rotate: 5, opacity: 1 }}
                     viewport={{ once: true }}
-                    className="absolute right-1/2 translate-x-[35%] md:translate-x-[45%] w-[300px] h-[620px] bg-black rounded-[3rem] border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden z-10 flex flex-col cursor-pointer group"
+                    className="hidden md:flex absolute right-1/2 translate-x-[45%] w-[300px] h-[620px] bg-black rounded-[3rem] border-[8px] border-[#1a1a1a] shadow-2xl overflow-hidden z-10 flex flex-col cursor-pointer group"
                     onClick={() => openModal(mobileImages, currentMobileImage1)}
                   >
                     <div className="absolute top-0 inset-x-0 h-7 bg-black z-20 flex justify-center">
                       <div className="w-36 h-5 bg-black rounded-b-2xl"></div>
                     </div>
                     <div className="bg-[#0f172a] h-full w-full relative overflow-hidden">
-                      <AnimatePresence mode="wait">
-                        <motion.img 
-                          key={currentMobileImage1}
-                          src={mobileImages[currentMobileImage1]} 
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.5 }}
-                          className="w-full h-full object-cover object-top" 
+                      {mobileImages.map((src, idx) => (
+                        <img
+                          key={src}
+                          src={src}
+                          className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500 ${
+                            idx === currentMobileImage1 ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                          }`}
                         />
-                      </AnimatePresence>
+                      ))}
                       <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 z-30">
                         <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-white text-[10px] font-medium">
                           Büyüt
@@ -410,29 +423,32 @@ function App() {
                     </div>
                   </motion.div>
 
-                  {/* Phone 2 (Önde) */}
+                  {/* Phone 2 (Önde) - Centered on Mobile */}
                   <motion.div 
-                    initial={{ x: -60, y: 30, rotate: -2, opacity: 0 }}
-                    whileInView={{ x: -50, y: 30, rotate: -2, opacity: 1 }}
+                    initial={{ x: isMobile ? 0 : -60, y: 30, rotate: isMobile ? 0 : -2, opacity: 0 }}
+                    whileInView={{ 
+                      x: isMobile ? 0 : -50, 
+                      y: isMobile ? 0 : 30, 
+                      rotate: isMobile ? 0 : -2, 
+                      opacity: 1 
+                    }}
                     viewport={{ once: true }}
-                    className="absolute left-1/2 -translate-x-[45%] md:-translate-x-[35%] w-[300px] h-[620px] bg-black rounded-[3rem] border-[8px] border-[#262626] shadow-[0_0_60px_rgba(0,0,0,0.8)] overflow-hidden z-20 flex flex-col cursor-pointer group"
+                    className="relative md:absolute md:left-1/2 md:-translate-x-[35%] w-[280px] sm:w-[300px] h-[560px] sm:h-[620px] bg-black rounded-[3rem] border-[8px] border-[#262626] shadow-[0_0_60px_rgba(0,0,0,0.8)] overflow-hidden z-20 flex flex-col cursor-pointer group"
                     onClick={() => openModal(mobileImages, currentMobileImage2)}
                   >
                     <div className="absolute top-0 inset-x-0 h-7 bg-black z-20 flex justify-center">
                       <div className="w-36 h-5 bg-black rounded-b-2xl"></div>
                     </div>
                     <div className="bg-[#09090b] h-full w-full relative overflow-hidden">
-                      <AnimatePresence mode="wait">
-                        <motion.img 
-                          key={currentMobileImage2}
-                          src={mobileImages[currentMobileImage2]} 
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.5 }}
-                          className="w-full h-full object-cover object-top" 
+                      {mobileImages.map((src, idx) => (
+                        <img
+                          key={src}
+                          src={src}
+                          className={`absolute inset-0 w-full h-full object-cover object-top transition-opacity duration-500 ${
+                            idx === currentMobileImage2 ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                          }`}
                         />
-                      </AnimatePresence>
+                      ))}
                       <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100 z-30">
                         <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20 text-white text-[10px] font-medium">
                           Büyüt
@@ -540,7 +556,10 @@ function App() {
       <footer className="border-t border-white/5 bg-black relative z-10">
         <div className="max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center">
-            <img src="/logo_yatay.png" alt="SahaTakip Logo" className="h-10 w-auto object-contain opacity-90" />
+            <div className="flex items-center gap-1.5 font-black text-xl tracking-tighter uppercase">
+              <span className="text-white">SAHA</span>
+              <span className="text-primary">TAKİP</span>
+            </div>
           </div>
           <div className="text-sm text-textMuted">
             © {new Date().getFullYear()} SahaTakip. Tüm hakları saklıdır.
