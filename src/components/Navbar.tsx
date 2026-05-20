@@ -57,6 +57,14 @@ export default function Navbar() {
         {/* CTA */}
         <div className="flex items-center gap-3">
           <a
+            href="https://app.sahatakip.net"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center justify-center bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.15] text-white font-semibold text-[13px] px-5 py-2.5 rounded-full transition-all duration-300"
+          >
+            Giriş Yap
+          </a>
+          <a
             href="#contact"
             className="hidden sm:inline-flex items-center gap-2 bg-brand hover:bg-brand-light text-bg font-semibold text-[13px] px-5 py-2.5 rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(0,212,255,0.25)] hover:shadow-[0_0_35px_rgba(0,212,255,0.45)]"
           >
@@ -86,13 +94,24 @@ export default function Navbar() {
               <ChevronRight className="w-4 h-4 opacity-30" />
             </a>
           ))}
-          <a
-            href="#contact"
-            onClick={() => setMobileOpen(false)}
-            className="flex items-center justify-center gap-2 mt-4 bg-brand text-bg font-semibold text-sm px-5 py-3.5 rounded-xl transition-all"
-          >
-            Demo Talep Et
-          </a>
+          <div className="grid grid-cols-2 gap-3 mt-4">
+            <a
+              href="https://app.sahatakip.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-center bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.15] text-white font-semibold text-sm px-5 py-3.5 rounded-xl transition-all"
+            >
+              Giriş Yap
+            </a>
+            <a
+              href="#contact"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-center bg-brand text-bg font-semibold text-sm px-5 py-3.5 rounded-xl transition-all"
+            >
+              Demo Talep Et
+            </a>
+          </div>
         </div>
       </div>
     </nav>
