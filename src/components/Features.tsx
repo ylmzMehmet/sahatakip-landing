@@ -10,7 +10,7 @@ const features = [
     icon: <Crosshair className="w-5 h-5" />,
     title: 'Geofence Konum Kilidi',
     desc: 'Teslimat noktasına 50m yaklaşmadan işlem yapılamaz. Uzaktan sahte check-in teknik olarak imkansızdır.',
-    gradient: 'from-cyan-500 to-blue-500',
+    gradient: 'from-brand to-brand-light',
   },
   {
     icon: <Camera className="w-5 h-5" />,
@@ -58,7 +58,7 @@ const features = [
     icon: <BarChart3 className="w-5 h-5" />,
     title: 'Kapsamlı Raporlama',
     desc: 'Saha özetleri, ziyaret tamamlama, atlanan durak analizi ve personel performans KPI\'ları.',
-    gradient: 'from-blue-400 to-cyan-500',
+    gradient: 'from-brand-light to-brand',
   },
 ];
 

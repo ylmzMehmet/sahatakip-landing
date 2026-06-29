@@ -32,7 +32,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Massive Gradient Orbs */}
       <div className="absolute top-[-20%] left-[-10%] w-[700px] h-[700px] bg-brand/[0.07] blur-[180px] rounded-full pointer-events-none" />
-      <div className="absolute top-[10%] right-[-15%] w-[500px] h-[500px] bg-blue-600/[0.05] blur-[150px] rounded-full pointer-events-none" />
+      <div className="absolute top-[10%] right-[-15%] w-[500px] h-[500px] bg-brand-dark/[0.05] blur-[150px] rounded-full pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[30%] w-[600px] h-[600px] bg-brand/[0.04] blur-[160px] rounded-full pointer-events-none" />
 
       {/* Grid Pattern */}
@@ -205,7 +205,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
               </div>
           </div>
 
-          {/* Image Indicators */}
+        {/* Image Indicators */}
           <div className="flex justify-center gap-1.5 mt-5">
             {pcImages.map((_, i) => (
               <button

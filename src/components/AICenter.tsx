@@ -7,7 +7,7 @@ const aiFeatures = [
     icon: <Shield className="w-5 h-5" />,
     title: 'Güvenilirlik Puanı',
     desc: 'Her personelin anomali geçmişi, rota uyumu ve teslimat doğruluğu analiz edilerek güvenilirlik skoru hesaplanır.',
-    gradient: 'from-brand to-blue-500',
+    gradient: 'from-brand to-brand-light',
   },
   {
     icon: <TrendingUp className="w-5 h-5" />,

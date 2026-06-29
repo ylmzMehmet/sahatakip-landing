@@ -32,7 +32,7 @@ export default function CTA() {
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 leading-tight">
               Saha hakimiyetini
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-brand-light to-cyan-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-dark to-brand">
                 bugün ele alın
               </span>
             </h2>

@@ -13,10 +13,10 @@ export default {
           elevated: '#f1f5f9',
         },
         brand: {
-          DEFAULT: '#06b6d4',
-          dark: '#0891b2',
-          light: '#22d3ee',
-          glow: 'rgba(6, 182, 212, 0.15)',
+          DEFAULT: '#4f46e5', // indigo-600
+          dark: '#3730a3',    // indigo-800
+          light: '#6366f1',   // indigo-500
+          glow: 'rgba(79, 70, 229, 0.15)',
         },
         orange: '#ff6b35',
         surface: '#e2e8f0',
