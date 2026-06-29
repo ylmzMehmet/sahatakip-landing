@@ -25,7 +25,7 @@ function App() {
   };
 
   return (
-    <div id="top" className="relative min-h-screen bg-bg text-white font-sans overflow-x-hidden">
+    <div id="top" className="relative min-h-screen bg-bg text-slate-900 font-sans overflow-x-hidden">
       {/* Noise Texture Overlay */}
       <div className="noise-overlay" />
 
@@ -33,8 +33,8 @@ function App() {
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 opacity-[0.012]" style={{
           backgroundImage: `
-            linear-gradient(rgba(255,255,255,0.4) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.4) 1px, transparent 1px)
+            linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
           `,
           backgroundSize: '80px 80px',
         }} />

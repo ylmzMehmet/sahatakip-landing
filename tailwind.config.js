@@ -8,20 +8,20 @@ export default {
     extend: {
       colors: {
         bg: {
-          DEFAULT: '#06080d',
-          card: '#0b0f18',
-          elevated: '#111827',
+          DEFAULT: '#f8fafc',
+          card: '#ffffff',
+          elevated: '#f1f5f9',
         },
         brand: {
-          DEFAULT: '#00d4ff',
+          DEFAULT: '#06b6d4',
           dark: '#0891b2',
-          light: '#67e8f9',
-          glow: 'rgba(0, 212, 255, 0.15)',
+          light: '#22d3ee',
+          glow: 'rgba(6, 182, 212, 0.15)',
         },
         orange: '#ff6b35',
-        surface: '#0d1117',
-        muted: '#8b95a5',
-        dim: '#5b6478',
+        surface: '#e2e8f0',
+        muted: '#64748b',
+        dim: '#475569',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

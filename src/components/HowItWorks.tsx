@@ -90,7 +90,7 @@ export default function HowItWorks() {
                   ADIM {step.num}
                 </span>
 
-                <h4 className="text-lg font-bold text-white mb-3">{step.title}</h4>
+                <h4 className="text-lg font-bold text-slate-900 mb-3">{step.title}</h4>
                 <p className="text-[13px] text-muted leading-relaxed max-w-[260px]">{step.desc}</p>
               </div>
             </motion.div>

@@ -13,9 +13,9 @@ export default function CTA() {
           className="relative rounded-3xl overflow-hidden"
         >
           {/* Background Layers */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0a1628] via-[#0d1a30] to-[#0a1020]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-slate-100 to-slate-50" />
           <div className="absolute inset-0 opacity-[0.03]" style={{
-            backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(0,0,0,0.1) 1px, transparent 0)',
             backgroundSize: '24px 24px',
           }} />
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand/40 to-transparent" />
@@ -45,14 +45,14 @@ export default function CTA() {
             <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
               <a
                 href="mailto:demo@sahatakip.net?subject=Ücretsiz Pilot Talebi&body=Merhaba, SahaTakip sistemi için pilot kullanım başlatmak istiyoruz.%0D%0A%0D%0AŞirket Adı: %0D%0Aİletişim Kişisi: %0D%0ATelefon: "
-                className="group inline-flex items-center justify-center gap-2.5 bg-brand hover:bg-brand-light text-bg font-semibold text-[15px] px-8 py-4 rounded-2xl transition-all duration-300 shadow-[0_0_30px_rgba(0,212,255,0.25)] hover:shadow-[0_0_50px_rgba(0,212,255,0.4)]"
+                className="group inline-flex items-center justify-center gap-2.5 bg-brand hover:bg-brand-light text-white font-semibold text-[15px] px-8 py-4 rounded-2xl transition-all duration-300 shadow-[0_0_30px_rgba(0,212,255,0.25)] hover:shadow-[0_0_50px_rgba(0,212,255,0.4)]"
               >
                 Ücretsiz Pilot Başlat
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
               </a>
               <a
                 href="mailto:satis@sahatakip.net?subject=SahaTakip Satış Görüşmesi Talebi"
-                className="inline-flex items-center justify-center gap-2.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.15] text-white font-semibold text-[15px] px-8 py-4 rounded-2xl transition-all duration-300"
+                className="inline-flex items-center justify-center gap-2.5 bg-slate-100 hover:bg-slate-200 border border-slate-200 hover:border-slate-300 text-slate-900 font-semibold text-[15px] px-8 py-4 rounded-2xl transition-all duration-300"
               >
                 <Mail className="w-4 h-4 text-brand" />
                 Satış Ekibiyle Görüş
@@ -61,11 +61,11 @@ export default function CTA() {
 
             {/* Contact Info */}
             <div className="flex flex-wrap justify-center gap-8 text-sm text-dim">
-              <a href="mailto:info@sahatakip.net" className="flex items-center gap-2 hover:text-white transition-colors">
+              <a href="mailto:info@sahatakip.net" className="flex items-center gap-2 hover:text-slate-900 transition-colors">
                 <Mail className="w-4 h-4 text-brand/60" />
                 info@sahatakip.net
               </a>
-              <a href="mailto:demo@sahatakip.net" className="flex items-center gap-2 hover:text-white transition-colors">
+              <a href="mailto:demo@sahatakip.net" className="flex items-center gap-2 hover:text-slate-900 transition-colors">
                 <Mail className="w-4 h-4 text-brand/60" />
                 demo@sahatakip.net
               </a>

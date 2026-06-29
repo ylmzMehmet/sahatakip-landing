@@ -33,7 +33,7 @@ export default function AICenter() {
   return (
     <section id="ai" className="relative py-20 lg:py-28 overflow-hidden">
       {/* BG */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg via-[#08081a] to-bg pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-slate-100/50 to-slate-50 pointer-events-none" />
       <div className="absolute top-[10%] right-[-10%] w-[600px] h-[600px] bg-violet-600/[0.04] blur-[160px] rounded-full pointer-events-none" />
       <div className="absolute bottom-[10%] left-[-5%] w-[400px] h-[400px] bg-brand/[0.04] blur-[120px] rounded-full pointer-events-none" />
 
@@ -69,7 +69,7 @@ export default function AICenter() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group relative bg-white/[0.015] border border-white/[0.04] rounded-2xl p-7 hover:bg-white/[0.03] hover:border-violet-500/[0.12] transition-all duration-500 overflow-hidden"
+              className="group relative bg-white border border-slate-200 rounded-2xl p-7 hover:bg-slate-50 hover:border-violet-500/[0.12] transition-all duration-500 overflow-hidden shadow-sm hover:shadow-md"
             >
               {/* Hover glow */}
               <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${f.gradient} rounded-full blur-[80px] opacity-0 group-hover:opacity-[0.06] transition-opacity duration-700 pointer-events-none`} />
@@ -78,7 +78,7 @@ export default function AICenter() {
                 <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${f.gradient} flex items-center justify-center text-white mb-5 shadow-lg opacity-90`}>
                   {f.icon}
                 </div>
-                <h4 className="text-[15px] font-semibold text-white mb-2.5">{f.title}</h4>
+                <h4 className="text-[15px] font-semibold text-slate-900 mb-2.5">{f.title}</h4>
                 <p className="text-[13px] text-muted leading-relaxed">{f.desc}</p>
               </div>
             </motion.div>

@@ -12,7 +12,7 @@ const stats = [
 export default function TrustMetrics() {
   return (
     <section className="relative py-16 lg:py-20">
-      <div className="absolute inset-0 bg-gradient-to-b from-bg via-bg-card/50 to-bg pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white/50 to-slate-50 pointer-events-none" />
 
       <div className="relative max-w-[1320px] mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
@@ -23,12 +23,12 @@ export default function TrustMetrics() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="group relative bg-white/[0.02] border border-white/[0.05] rounded-2xl p-6 lg:p-8 text-center hover:bg-white/[0.04] hover:border-white/[0.08] transition-all duration-500"
+              className="group relative bg-white border border-slate-200 rounded-2xl p-6 lg:p-8 text-center hover:bg-slate-50 hover:border-slate-300 transition-all duration-500 shadow-sm hover:shadow-md"
             >
               <div className={`inline-flex items-center justify-center w-11 h-11 rounded-xl ${stat.bg} ${stat.color} mb-4`}>
                 {stat.icon}
               </div>
-              <div className="text-3xl lg:text-4xl font-extrabold text-white mb-1 tracking-tight">{stat.value}</div>
+              <div className="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-1 tracking-tight">{stat.value}</div>
               <div className="text-sm text-muted font-medium">{stat.label}</div>
             </motion.div>
           ))}

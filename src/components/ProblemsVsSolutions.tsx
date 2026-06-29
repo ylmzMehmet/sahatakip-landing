@@ -56,7 +56,7 @@ export default function ProblemsVsSolutions() {
                   <AlertOctagon className="w-5 h-5 text-red-400" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">Saha Gerçekleri</h3>
+                  <h3 className="text-lg font-bold text-slate-900">Saha Gerçekleri</h3>
                   <p className="text-[12px] text-red-400/70">Karşılaştığınız sorunlar</p>
                 </div>
               </div>
@@ -67,7 +67,7 @@ export default function ProblemsVsSolutions() {
                     <div className="w-5 h-5 rounded-md bg-red-500/10 flex items-center justify-center shrink-0 mt-0.5">
                       <X className="w-3 h-3 text-red-400" />
                     </div>
-                    <p className="text-[13px] text-white/50 leading-relaxed">{t}</p>
+                    <p className="text-[13px] text-slate-600 leading-relaxed">{t}</p>
                   </li>
                 ))}
               </ul>
@@ -91,7 +91,7 @@ export default function ProblemsVsSolutions() {
                   <ShieldCheck className="w-5 h-5 text-brand" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">SahaTakip Çözümü</h3>
+                  <h3 className="text-lg font-bold text-slate-900">SahaTakip Çözümü</h3>
                   <p className="text-[12px] text-brand/70">Kanıta dayalı çözümler</p>
                 </div>
               </div>
@@ -102,8 +102,8 @@ export default function ProblemsVsSolutions() {
                     <div className="w-5 h-5 rounded-md bg-brand/10 flex items-center justify-center shrink-0 mt-0.5">
                       <CheckCircle2 className="w-3 h-3 text-brand" />
                     </div>
-                    <p className="text-[13px] text-white/50 leading-relaxed">
-                      <strong className="text-white/80 font-semibold">{s.bold}:</strong> {s.text}
+                    <p className="text-[13px] text-slate-600 leading-relaxed">
+                      <strong className="text-slate-900 font-semibold">{s.bold}:</strong> {s.text}
                     </p>
                   </li>
                 ))}

@@ -54,7 +54,7 @@ export default function MobileApp({ onOpenModal }: MobileAppProps) {
   return (
     <section id="mobile" className="relative py-20 lg:py-28 overflow-hidden">
       {/* BG Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-bg via-bg-card/40 to-bg pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white/40 to-slate-50 pointer-events-none" />
       <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-brand/[0.04] blur-[150px] rounded-full pointer-events-none" />
 
       <div className="relative max-w-[1320px] mx-auto px-6 lg:px-8">
@@ -152,13 +152,13 @@ export default function MobileApp({ onOpenModal }: MobileAppProps) {
           {/* Content - Right (3 cols) */}
           <div className="lg:col-span-3">
             {/* Tab Switcher */}
-            <div className="inline-flex bg-white/[0.03] border border-white/[0.06] rounded-2xl p-1.5 mb-8">
+            <div className="inline-flex bg-slate-100/50 border border-slate-200 rounded-2xl p-1.5 mb-8">
               <button
                 onClick={() => setActiveTab('personel')}
                 className={`px-6 py-3 rounded-xl text-[13px] font-semibold transition-all duration-300 ${
                   activeTab === 'personel'
                     ? 'bg-brand text-bg shadow-[0_0_20px_rgba(0,212,255,0.25)]'
-                    : 'text-muted hover:text-white'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 👷 Saha Personeli
@@ -168,7 +168,7 @@ export default function MobileApp({ onOpenModal }: MobileAppProps) {
                 className={`px-6 py-3 rounded-xl text-[13px] font-semibold transition-all duration-300 ${
                   activeTab === 'yonetici'
                     ? 'bg-brand text-bg shadow-[0_0_20px_rgba(0,212,255,0.25)]'
-                    : 'text-muted hover:text-white'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 👔 Yönetici
@@ -183,7 +183,7 @@ export default function MobileApp({ onOpenModal }: MobileAppProps) {
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.25 }}
               >
-                <h3 className="text-xl font-bold text-white mb-2">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">
                   {activeTab === 'personel' ? 'Personel Uygulaması' : 'Yönetici Uygulaması'}
                 </h3>
                 <p className="text-muted text-sm mb-8 leading-relaxed max-w-md">
@@ -197,13 +197,13 @@ export default function MobileApp({ onOpenModal }: MobileAppProps) {
                   {currentFeatures.map((f, i) => (
                     <div
                       key={i}
-                      className="flex items-start gap-3 p-4 rounded-xl bg-white/[0.015] border border-white/[0.03] hover:bg-white/[0.04] hover:border-white/[0.08] transition-all duration-300"
+                      className="flex items-start gap-3 p-4 rounded-xl bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 shadow-sm hover:shadow-md"
                     >
                       <div className={`w-8 h-8 rounded-lg ${activeTab === 'personel' ? 'bg-brand/[0.1] text-brand' : 'bg-violet-400/[0.1] text-violet-400'} flex items-center justify-center shrink-0`}>
                         {f.icon}
                       </div>
                       <div>
-                        <h4 className="text-[13px] font-semibold text-white mb-0.5">{f.title}</h4>
+                        <h4 className="text-[13px] font-semibold text-slate-900 mb-0.5">{f.title}</h4>
                         <p className="text-[11px] text-dim leading-relaxed">{f.desc}</p>
                       </div>
                     </div>

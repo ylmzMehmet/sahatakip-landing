@@ -66,7 +66,7 @@ export default function Features() {
   return (
     <section id="features" className="relative py-20 lg:py-28">
       {/* Section BG */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bg-card/30 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-100/50 to-transparent pointer-events-none" />
 
       <div className="relative max-w-[1320px] mx-auto px-6 lg:px-8">
         {/* Header */}
@@ -102,7 +102,7 @@ export default function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.04 }}
-              className="group relative bg-white/[0.015] border border-white/[0.04] rounded-2xl p-7 hover:bg-white/[0.03] hover:border-white/[0.08] transition-all duration-500 overflow-hidden"
+              className="group relative bg-white border border-slate-200 rounded-2xl p-7 hover:bg-slate-50 hover:border-slate-300 transition-all duration-500 overflow-hidden shadow-sm hover:shadow-md"
             >
               {/* Hover Glow */}
               <div className={`absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br ${feature.gradient} rounded-full blur-[80px] opacity-0 group-hover:opacity-[0.08] transition-opacity duration-700 pointer-events-none`} />
@@ -111,7 +111,7 @@ export default function Features() {
                 <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center text-white mb-5 shadow-lg opacity-90 group-hover:opacity-100 transition-opacity`}>
                   {feature.icon}
                 </div>
-                <h3 className="text-[15px] font-semibold text-white mb-2.5 tracking-tight">{feature.title}</h3>
+                <h3 className="text-[15px] font-semibold text-slate-900 mb-2.5 tracking-tight">{feature.title}</h3>
                 <p className="text-[13px] text-muted leading-relaxed">{feature.desc}</p>
               </div>
             </motion.div>

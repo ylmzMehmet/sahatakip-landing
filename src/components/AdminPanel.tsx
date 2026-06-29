@@ -64,9 +64,9 @@ export default function AdminPanel() {
         {/* Category Labels */}
         <div className="flex flex-wrap justify-center gap-3 mb-10">
           {categories.map(cat => (
-            <div key={cat.key} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.03] border border-white/[0.05] text-[12px] font-medium text-muted">
+            <div key={cat.key} className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white border border-slate-200 text-[12px] font-medium text-slate-600">
               {cat.label}
-              <span className="px-1.5 py-0.5 rounded-md bg-white/[0.06] text-[10px] font-bold text-white">{cat.count}</span>
+              <span className="px-1.5 py-0.5 rounded-md bg-slate-100 text-[10px] font-bold text-slate-900">{cat.count}</span>
             </div>
           ))}
         </div>
@@ -80,13 +80,13 @@ export default function AdminPanel() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.025 }}
-              className="group flex items-start gap-4 p-4 rounded-xl bg-white/[0.015] border border-white/[0.03] hover:bg-white/[0.04] hover:border-white/[0.08] transition-all duration-300"
+              className="group flex items-start gap-4 p-4 rounded-xl bg-white border border-slate-200 hover:bg-slate-50 hover:border-slate-300 transition-all duration-300 shadow-sm hover:shadow-md"
             >
               <div className="w-9 h-9 rounded-xl bg-brand/[0.08] flex items-center justify-center text-brand shrink-0 group-hover:bg-brand/[0.15] transition-colors">
                 {mod.icon}
               </div>
               <div className="min-w-0">
-                <h4 className="text-[13px] font-semibold text-white mb-0.5 truncate">{mod.title}</h4>
+                <h4 className="text-[13px] font-semibold text-slate-900 mb-0.5 truncate">{mod.title}</h4>
                 <p className="text-[12px] text-dim leading-relaxed">{mod.desc}</p>
               </div>
             </motion.div>

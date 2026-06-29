@@ -38,8 +38,8 @@ export default function Hero({ onOpenModal }: HeroProps) {
       {/* Grid Pattern */}
       <div className="absolute inset-0 opacity-[0.02]" style={{
         backgroundImage: `
-          linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)
+          linear-gradient(rgba(0,0,0,0.1) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0,0,0,0.1) 1px, transparent 1px)
         `,
         backgroundSize: '80px 80px',
       }} />
@@ -56,8 +56,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           className="flex justify-center mb-6"
         >
           <p 
-            className="text-[15px] font-semibold text-[#00d4ff] tracking-wide"
-            style={{ textShadow: '0 0 12px rgba(0, 212, 255, 0.6)' }}
+            className="text-[15px] font-semibold text-brand-dark tracking-wide"
           >
             Yeni AI Destekli Saha Operasyon Doğrulama Sistemi
           </p>
@@ -71,9 +70,9 @@ export default function Hero({ onOpenModal }: HeroProps) {
           className="text-center max-w-4xl mx-auto mb-8"
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08] mb-0">
-            <span className="text-white">Sahada her şey</span>
+            <span className="text-slate-900">Sahada her şey</span>
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-brand-light to-cyan-300">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-dark to-brand">
               kontrolünüz altında
             </span>
           </h1>
@@ -87,7 +86,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           className="text-center text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           GPS doğrulama, canlı fotoğraf kanıtı ve yapay zeka ile saha ekiplerinizin
-          gerçekten tüm noktalara uğradığından <strong className="text-white/90">matematiksel olarak</strong> emin olun.
+          gerçekten tüm noktalara uğradığından <strong className="text-slate-900/90">matematiksel olarak</strong> emin olun.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -106,7 +105,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
           </a>
           <a
             href="#how-it-works"
-            className="inline-flex items-center justify-center gap-2.5 bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.08] hover:border-white/[0.15] text-white font-semibold text-[15px] px-8 py-4 rounded-2xl transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2.5 bg-slate-900/[0.04] hover:bg-slate-900/[0.08] border border-slate-900/[0.08] hover:border-slate-900/[0.15] text-slate-900 font-semibold text-[15px] px-8 py-4 rounded-2xl transition-all duration-300"
           >
             <Play className="w-4 h-4 text-brand" />
             Nasıl Çalışır?
@@ -146,18 +145,18 @@ export default function Hero({ onOpenModal }: HeroProps) {
 
           {/* Browser Chrome */}
           <div
-            className="relative glow-border rounded-2xl overflow-hidden bg-bg-card shadow-[0_20px_80px_-15px_rgba(0,0,0,0.8),0_0_0_1px_rgba(255,255,255,0.05)] cursor-pointer group"
+            className="relative glow-border rounded-2xl overflow-hidden bg-bg-card shadow-[0_20px_80px_-15px_rgba(0,0,0,0.2),0_0_0_1px_rgba(0,0,0,0.05)] cursor-pointer group"
             onClick={() => onOpenModal(pcImages, currentImage)}
           >
             {/* Top Bar */}
-            <div className="h-11 bg-[#0d1220] border-b border-white/[0.04] flex items-center px-4 gap-4">
+            <div className="h-11 bg-slate-100 border-b border-slate-200 flex items-center px-4 gap-4">
               <div className="flex gap-2">
                 <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
                 <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
                 <div className="w-3 h-3 rounded-full bg-[#28c840]" />
               </div>
               <div className="flex-1 flex justify-center">
-                <div className="flex items-center gap-2 bg-black/30 border border-white/[0.04] rounded-lg px-4 py-1.5 text-[11px] text-dim font-mono">
+                <div className="flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-4 py-1.5 text-[11px] text-dim font-mono">
                   <Lock className="w-3 h-3 text-emerald-400" />
                   sahatakip.net/dashboard
                 </div>
@@ -166,7 +165,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
             </div>
 
               {/* Screen Content */}
-              <div className="relative aspect-[16/9.5] bg-[#080c14] overflow-hidden group/screen">
+              <div className="relative aspect-[16/9.5] bg-slate-50 overflow-hidden group/screen">
                 {pcImages.map((src, idx) => (
                   <img
                     key={src}
@@ -182,13 +181,13 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4 opacity-0 group-hover/screen:opacity-100 transition-opacity z-20 pointer-events-none">
                   <button
                     onClick={(e) => { e.stopPropagation(); setCurrentImage(p => (p - 1 + pcImages.length) % pcImages.length); }}
-                    className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-brand hover:text-bg transition-all pointer-events-auto"
+                    className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 flex items-center justify-center text-slate-900 hover:bg-brand hover:text-bg transition-all pointer-events-auto"
                   >
                     <ChevronLeft className="w-6 h-6" />
                   </button>
                   <button
                     onClick={(e) => { e.stopPropagation(); setCurrentImage(p => (p + 1) % pcImages.length); }}
-                    className="w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/10 flex items-center justify-center text-white hover:bg-brand hover:text-bg transition-all pointer-events-auto"
+                    className="w-10 h-10 rounded-full bg-white/80 backdrop-blur-md border border-slate-200 flex items-center justify-center text-slate-900 hover:bg-brand hover:text-bg transition-all pointer-events-auto"
                   >
                     <ChevronRight className="w-6 h-6" />
                   </button>
@@ -199,7 +198,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                   className="absolute inset-0 bg-brand/0 group-hover:bg-brand/[0.03] transition-all duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100 cursor-pointer"
                   onClick={() => onOpenModal(pcImages, currentImage)}
                 >
-                  <div className="bg-black/60 backdrop-blur-xl px-5 py-2.5 rounded-full border border-white/10 text-white text-[13px] font-medium shadow-2xl">
+                  <div className="bg-white/90 backdrop-blur-xl px-5 py-2.5 rounded-full border border-slate-200 text-slate-900 text-[13px] font-medium shadow-2xl">
                     🔍 Tam Ekran Görüntüle
                   </div>
                 </div>
@@ -213,7 +212,7 @@ export default function Hero({ onOpenModal }: HeroProps) {
                 key={i}
                 onClick={() => setCurrentImage(i)}
                 className={`rounded-full transition-all duration-500 ${
-                  i === currentImage ? 'w-7 h-1.5 bg-brand' : 'w-1.5 h-1.5 bg-white/10 hover:bg-white/20'
+                  i === currentImage ? 'w-7 h-1.5 bg-brand' : 'w-1.5 h-1.5 bg-slate-900/10 hover:bg-slate-900/20'
                 }`}
               />
             ))}
