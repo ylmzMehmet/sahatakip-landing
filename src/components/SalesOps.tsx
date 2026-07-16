@@ -85,7 +85,7 @@ export default function SalesOps() {
             Satış & Operasyon
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-[2.8rem] font-extrabold tracking-tight mb-5 leading-tight">
-            Artık sadece takip değil,
+            Satıştan depoya,
             <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-light">
               sahanın tamamı
