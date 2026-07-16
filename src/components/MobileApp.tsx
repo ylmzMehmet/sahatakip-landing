@@ -18,6 +18,7 @@ const mobileImages = [
   '/mockups/mobile/rota-atama.png',
   '/mockups/mobile/arac-teslimatlari.png',
   '/mockups/mobile/gunluk-operasyon.png',
+  '/mockups/mobile/arac-stoklari.png',
 ];
 
 const personnelFeatures = [
