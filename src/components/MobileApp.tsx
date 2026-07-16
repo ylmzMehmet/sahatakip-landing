@@ -8,12 +8,16 @@ import {
 } from 'lucide-react';
 
 const mobileImages = [
-  '/mockups/mobile/Screenshot_1.png',
-  '/mockups/mobile/Screenshot_2.png',
-  '/mockups/mobile/Screenshot_3.png',
-  '/mockups/mobile/Screenshot_4.png',
-  '/mockups/mobile/Screenshot_5.png',
-  '/mockups/mobile/Screenshot_6.png',
+  '/mockups/mobile/ana-sayfa-rota.png',
+  '/mockups/mobile/siparis-olustur.png',
+  '/mockups/mobile/tahsilat-al.png',
+  '/mockups/mobile/teslimat-formu.png',
+  '/mockups/mobile/iade-al.png',
+  '/mockups/mobile/yonetici-dashboard.png',
+  '/mockups/mobile/personel-listesi.png',
+  '/mockups/mobile/rota-atama.png',
+  '/mockups/mobile/arac-teslimatlari.png',
+  '/mockups/mobile/gunluk-operasyon.png',
 ];
 
 const personnelFeatures = [

@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Lock, Play, Shield, Zap, Target, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const pcImages = [
-  '/mockups/pc/canlıHarita.png',
-  '/mockups/pc/anasayfa.png',
-  '/mockups/pc/RotaTakip.png',
-  '/mockups/pc/anasayfa_light.png',
-  '/mockups/pc/canlı harita_light.png',
-  '/mockups/pc/anamoli.png',
-  '/mockups/pc/atlanan.png',
-  '/mockups/pc/pffline.png',
-  '/mockups/pc/süpheli.png',
+  '/mockups/pc/ana-sayfa-dashboard.png',
+  '/mockups/pc/canli-harita.png',
+  '/mockups/pc/satis-dashboard.png',
+  '/mockups/pc/tahsilatlar.png',
+  '/mockups/pc/merkezi-depo.png',
+  '/mockups/pc/dinamik-form-yonetimi.png',
+  '/mockups/pc/hedef-dashboard.png',
+  '/mockups/pc/gunluk-zaman-cizelgesi.png',
+  '/mockups/pc/ziyaret-tamamlama-raporu.png',
 ];
 
 interface HeroProps {
