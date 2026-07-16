@@ -55,10 +55,10 @@ export default function Hero({ onOpenModal }: HeroProps) {
           transition={{ duration: 0.5 }}
           className="flex justify-center mb-6"
         >
-          <p 
+          <p
             className="text-[15px] font-semibold text-brand-dark tracking-wide"
           >
-            Yeni AI Destekli Saha Operasyon Doğrulama Sistemi
+            Satıştan Tahsilata, Depodan Sahaya — Tek Platform
           </p>
         </motion.div>
 
@@ -85,8 +85,9 @@ export default function Hero({ onOpenModal }: HeroProps) {
           transition={{ duration: 0.5, delay: 0.25 }}
           className="text-center text-lg md:text-xl text-muted max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          GPS doğrulama, canlı fotoğraf kanıtı ve yapay zeka ile saha ekiplerinizin
-          gerçekten tüm noktalara uğradığından <strong className="text-slate-900/90">matematiksel olarak</strong> emin olun.
+          Saha satışı, tahsilat, iade, depo ve ekip yönetiminden GPS doğrulamalı teslimata kadar
+          sahada olup biten her şeyi tek platformda toplayın — yapay zeka destekli anomali tespitiyle
+          <strong className="text-slate-900/90"> matematiksel olarak</strong> emin olun.
         </motion.p>
 
         {/* CTA Buttons */}

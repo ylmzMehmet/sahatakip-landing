@@ -3,6 +3,7 @@ import { MapPin } from 'lucide-react';
 
 const footerLinks = [
   { label: 'Özellikler', href: '#features' },
+  { label: 'Satış & Operasyon', href: '#sales' },
   { label: 'Admin Panel', href: '#admin' },
   { label: 'Mobil Uygulama', href: '#mobile' },
   { label: 'AI Merkezi', href: '#ai' },
@@ -26,7 +27,8 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-[13px] text-slate-600 leading-relaxed max-w-xs">
-              GPS doğrulama, fotoğraflı kanıt ve AI destekli anomali tespiti ile saha operasyonlarınızı yönetin.
+              Satış, tahsilat, depo ve saha operasyonlarınızı; GPS doğrulama, fotoğraflı kanıt ve
+              AI destekli anomali tespitiyle tek platformda yönetin.
             </p>
           </div>
 

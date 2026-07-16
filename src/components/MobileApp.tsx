@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Smartphone, Navigation, Camera, WifiOff, Package, History, Bell,
-  MapPin, ClipboardList, KeyRound, CheckCircle2, ChevronLeft, ChevronRight
+  Smartphone, Navigation, Camera, WifiOff, Package, Bell,
+  MapPin, ClipboardList, CheckCircle2, ChevronLeft, ChevronRight,
+  Wallet, FileText, Timer, Trophy, ReceiptText,
+  Target, Route as RouteIcon, BadgeCheck,
 } from 'lucide-react';
 
 const mobileImages = [
@@ -17,19 +19,23 @@ const mobileImages = [
 const personnelFeatures = [
   { icon: <Navigation className="w-4 h-4" />, title: 'Konum Doğrulama', desc: 'GPS ile otomatik konum kontrolü ve teslimat gönderme' },
   { icon: <Camera className="w-4 h-4" />, title: 'Canlı Fotoğraf', desc: 'Zorunlu anlık kamera çekimi, galeri erişimi kapalı' },
-  { icon: <Package className="w-4 h-4" />, title: 'Stok Seçimi', desc: 'Araç stoğundan ürün ve miktar seçimi' },
+  { icon: <Wallet className="w-4 h-4" />, title: 'Sipariş & Tahsilat', desc: 'Sahada sipariş oluşturma, iade ve tahsilat kaydı' },
+  { icon: <FileText className="w-4 h-4" />, title: 'Dinamik Form & Sesli Not', desc: 'Ziyaret anında form doldurma, mikrofonla hızlı not bırakma' },
+  { icon: <Timer className="w-4 h-4" />, title: 'Mesai & Mola', desc: 'Mesai başlat/bitir, kategori bazlı aktivite kaydı' },
+  { icon: <Trophy className="w-4 h-4" />, title: 'Hedef & Rozetler', desc: 'Hedef ilerlemesi, liderlik tablosu ve rozetler' },
   { icon: <WifiOff className="w-4 h-4" />, title: 'Offline Mod', desc: 'İnternet kesintisinde otomatik kuyruğa alma' },
-  { icon: <History className="w-4 h-4" />, title: 'Geçmiş Kayıtlar', desc: 'Rota, teslimat ve stok geçmişi görüntüleme' },
-  { icon: <Bell className="w-4 h-4" />, title: 'Bildirim Gönder', desc: 'Açıklama ve fotoğraf ile bildirim yapma' },
+  { icon: <ReceiptText className="w-4 h-4" />, title: 'Masraf & İzin Talebi', desc: 'Harcama ve izin taleplerini anında gönderme' },
 ];
 
 const managerFeatures = [
   { icon: <MapPin className="w-4 h-4" />, title: 'Canlı Takip', desc: 'Personel konumlarını anlık izleme' },
-  { icon: <Package className="w-4 h-4" />, title: 'Stok Durumu', desc: 'Araç stoklarını anlık görüntüleme' },
-  { icon: <ClipboardList className="w-4 h-4" />, title: 'Rota Atama', desc: 'Dinamik rota planlama ve atama' },
+  { icon: <CheckCircle2 className="w-4 h-4" />, title: 'Bekleyen Onaylar', desc: 'Sipariş, masraf ve izin taleplerini onaylama' },
+  { icon: <RouteIcon className="w-4 h-4" />, title: 'Rota Optimizasyonu', desc: 'Tek tuşla günlük veya bölgesel rota optimizasyonu' },
+  { icon: <Target className="w-4 h-4" />, title: 'Hedef Dashboard', desc: 'Ekip ve kişi bazlı hedef ilerlemesini izleme' },
+  { icon: <Package className="w-4 h-4" />, title: 'Stok & SKT Takibi', desc: 'Araç stokları ve son kullanma tarihi yaklaşan lotlar' },
   { icon: <Bell className="w-4 h-4" />, title: 'Anomali Bildirimleri', desc: 'Anlık uyarı ve anomali tespiti' },
-  { icon: <CheckCircle2 className="w-4 h-4" />, title: 'Teslimat Denetim', desc: 'Onay/ret durumlarını izleme' },
-  { icon: <KeyRound className="w-4 h-4" />, title: 'Detaylı Teslimat', desc: 'Market bazlı teslimat detayları' },
+  { icon: <ClipboardList className="w-4 h-4" />, title: 'Teslimat Denetim', desc: 'Onay/ret durumlarını izleme' },
+  { icon: <BadgeCheck className="w-4 h-4" />, title: 'Müşteri İçgörüsü', desc: 'Cari risk ve ödeme trend özetini görüntüleme' },
 ];
 
 interface MobileAppProps {
@@ -76,7 +82,8 @@ export default function MobileApp({ onOpenModal }: MobileAppProps) {
             </span>
           </h2>
           <p className="text-muted text-lg max-w-xl mx-auto">
-            Personel ve yönetici için ayrı arayüzler. Basit, hızlı ve manipüle edilemez.
+            Personel ve yönetici için ayrı arayüzler. Satıştan tahsilata, rota optimizasyonundan
+            hedef takibine — basit, hızlı ve manipüle edilemez.
           </p>
         </motion.div>
 
@@ -188,8 +195,8 @@ export default function MobileApp({ onOpenModal }: MobileAppProps) {
                 </h3>
                 <p className="text-muted text-sm mb-8 leading-relaxed max-w-md">
                   {activeTab === 'personel'
-                    ? 'Karmaşık menüler yok. Ana sayfada durak listesi, konum doğrulama ile teslimat gönderme. Gün sonu mutabakat ve şifre değiştirme.'
-                    : 'Sahaya inmeden tam görünürlük. Personel konumları, araç stokları, rota atama ve anlık anomali bildirimleri cebinizde.'
+                    ? 'Karmaşık menüler yok. Durak listesi, konum doğrulamalı teslimat, sipariş/tahsilat/iade, dinamik form ve mesai takibi tek ekranda.'
+                    : 'Sahaya inmeden tam görünürlük. Personel konumları, bekleyen onaylar, hedef ilerlemesi ve anlık anomali bildirimleri cebinizde.'
                   }
                 </p>
 

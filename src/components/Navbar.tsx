@@ -3,9 +3,9 @@ import { Menu, X, ChevronRight, MapPin } from 'lucide-react';
 
 const navLinks = [
   { href: '#features', label: 'Özellikler' },
+  { href: '#sales', label: 'Satış & Operasyon' },
   { href: '#admin', label: 'Admin Panel' },
   { href: '#mobile', label: 'Mobil Uygulama' },
-  { href: '#how-it-works', label: 'Nasıl Çalışır' },
   { href: '#ai', label: 'AI Merkezi' },
 ];
 

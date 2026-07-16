@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Brain, Shield, TrendingUp, Camera, Sparkles, Cpu } from 'lucide-react';
+import { Brain, Shield, TrendingUp, Camera, Sparkles, Cpu, ScanEye, Mic, BadgeCheck, Percent } from 'lucide-react';
 
 const aiFeatures = [
   {
@@ -26,6 +26,30 @@ const aiFeatures = [
     title: 'Anomali Kalıp Tespiti',
     desc: 'Tekrarlayan anomali kalıplarını tespit ederek sistematik kural ihlallerini ve riskleri ortaya çıkarır.',
     gradient: 'from-violet-400 to-purple-500',
+  },
+  {
+    icon: <ScanEye className="w-5 h-5" />,
+    title: 'Raf Payı AI Önerisi',
+    desc: 'Raf fotoğrafından yapay zeka bir sayım önerisi üretip formu ön doldurur; son kararı her zaman personel verir.',
+    gradient: 'from-sky-400 to-blue-500',
+  },
+  {
+    icon: <Mic className="w-5 h-5" />,
+    title: 'Sesli Ziyaret Asistanı',
+    desc: 'Sahadan bırakılan sesli notu otomatik sınıflandırıp arıza, şikayet veya rakip aksiyonu gibi doğru akışa yönlendirir.',
+    gradient: 'from-rose-400 to-pink-500',
+  },
+  {
+    icon: <BadgeCheck className="w-5 h-5" />,
+    title: 'Müşteri İlişki Hafızası',
+    desc: 'Ödeme gecikmesi, teslimat uyuşmazlığı ve şikayet trendlerini analiz ederek saha ekibine ve personele doğrulanabilir bir güven pasaportu sunar.',
+    gradient: 'from-teal-400 to-cyan-500',
+  },
+  {
+    icon: <Percent className="w-5 h-5" />,
+    title: 'Dinamik İnisiyatif Motoru',
+    desc: 'Müşteri sadakat sınıfına göre personele kişi bazlı iskonto bütçesi tanımlar; her karar tam denetim izine kaydedilir.',
+    gradient: 'from-brand-light to-brand',
   },
 ];
 
@@ -55,20 +79,20 @@ export default function AICenter() {
             </span>
           </h2>
           <p className="text-muted text-lg max-w-2xl mx-auto">
-            Makine öğrenmesi ile personel davranışlarını analiz edin, stok tahminleri yapın ve
-            anomalileri sorun oluşmadan tespit edin.
+            Personel davranışlarını, raf fotoğraflarını, sesli notları ve müşteri geçmişini analiz eden
+            yapay zeka ile sorunları oluşmadan tespit edin.
           </p>
         </motion.div>
 
         {/* AI Feature Cards */}
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {aiFeatures.map((f, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.08 }}
               className="group relative bg-white border border-slate-200 rounded-2xl p-7 hover:bg-slate-50 hover:border-violet-500/[0.12] transition-all duration-500 overflow-hidden shadow-sm hover:shadow-md"
             >
               {/* Hover glow */}

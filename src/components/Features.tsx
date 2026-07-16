@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import {
-  Crosshair, Camera, Map, Route, PackageCheck,
+  Crosshair, Camera, Map, Settings2, PackageCheck,
   ShieldCheck, Activity, Smartphone, BarChart3, Layers,
 } from 'lucide-react';
 
@@ -25,9 +25,9 @@ const features = [
     gradient: 'from-emerald-500 to-teal-500',
   },
   {
-    icon: <Route className="w-5 h-5" />,
-    title: 'Dinamik Rota Yönetimi',
-    desc: 'Günlük, haftalık veya aylık rota planlama. Personele otomatik atama ve sapma analizi.',
+    icon: <Settings2 className="w-5 h-5" />,
+    title: 'Tenant Bazlı Esnek Yapı',
+    desc: 'Her modül, parametre ve form işletmenize göre açılıp kapatılır. Tek bir kod tabanı, sınırsız iş modeli.',
     gradient: 'from-amber-500 to-orange-500',
   },
   {
@@ -78,18 +78,18 @@ export default function Features() {
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand/[0.08] border border-brand/[0.15] text-brand text-[11px] font-bold tracking-widest uppercase mb-5">
             <Layers className="w-3 h-3" />
-            Platform
+            Güven Katmanı
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-[2.8rem] font-extrabold tracking-tight mb-5 leading-tight">
-            Operasyonlarınızı uçtan uca
+            Sahada olan biteni
             <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-light">
-              kontrol altına alın
+              kanıtla, manipülasyonu engelle
             </span>
           </h2>
           <p className="text-muted text-lg max-w-2xl mx-auto leading-relaxed">
-            Geofence kilidi, canlı fotoğraf, AI anomali tespiti ve kapsamlı raporlama ile
-            saha operasyonlarınızda manipülasyonu sıfırlayın.
+            Satıştan teslimata her işlem; geofence kilidi, canlı fotoğraf, offline destek ve
+            AI destekli anomali tespitiyle güvence altında.
           </p>
         </motion.div>
 

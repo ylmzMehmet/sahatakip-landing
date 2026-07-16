@@ -7,6 +7,7 @@ const problems = [
   'Eski fotoğrafların galeriden yüklenerek sahte kanıt sunulması',
   'Araç stoklarında gün sonu tutarsızlıklar ve kayıp yaşanması',
   'Hangi rotanın tamamlandığının belirsiz kalması',
+  'Satış, tahsilat, depo ve saha operasyonunun ayrı ayrı sistemlerde takip edilmesi',
   'Kontrolsüz saha operasyonunda artan maliyetler',
 ];
 
@@ -15,6 +16,7 @@ const solutions = [
   { bold: 'Canlı Kamera', text: 'Galeri kapalı, anlık çekim zorunlu' },
   { bold: 'Uçtan Uca Stok', text: 'Yükleme-teslimat-iade eşzamanlı izleme' },
   { bold: 'AI Anomali Tespiti', text: 'Şüpheli davranış otomatik tespiti' },
+  { bold: 'Tek Platform', text: 'Satıştan tahsilata, depodan sahaya tüm operasyon aynı ekranda' },
   { bold: 'Tam Görünürlük', text: 'Canlı harita ile anlık konum izleme' },
 ];
 

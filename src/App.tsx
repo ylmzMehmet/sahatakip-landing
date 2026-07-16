@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TrustMetrics from './components/TrustMetrics';
 import Features from './components/Features';
+import SalesOps from './components/SalesOps';
 import HowItWorks from './components/HowItWorks';
 import AdminPanel from './components/AdminPanel';
 import MobileApp from './components/MobileApp';
@@ -55,6 +56,7 @@ function App() {
         <Hero onOpenModal={openModal} />
         <TrustMetrics />
         <Features />
+        <SalesOps />
         <HowItWorks />
         <AdminPanel />
         <MobileApp onOpenModal={openModal} />
