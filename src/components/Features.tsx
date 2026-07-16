@@ -81,7 +81,7 @@ export default function Features() {
             Güven Katmanı
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-[2.8rem] font-extrabold tracking-tight mb-5 leading-tight">
-            Sahada olan biteni
+            Sahada olan biteni{" "}
             <br className="hidden sm:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-brand-light">
               kanıtla, manipülasyonu engelle
