@@ -2,12 +2,13 @@ import React from 'react';
 import { MapPin } from 'lucide-react';
 
 const footerLinks = [
-  { label: 'Özellikler', href: '#features' },
-  { label: 'Satış & Operasyon', href: '#sales' },
-  { label: 'Admin Panel', href: '#admin' },
-  { label: 'Mobil Uygulama', href: '#mobile' },
-  { label: 'AI Merkezi', href: '#ai' },
-  { label: 'İletişim', href: '#contact' },
+  { label: 'Özellikler', href: '/#features' },
+  { label: 'Satış & Operasyon', href: '/#sales' },
+  { label: 'Admin Panel', href: '/#admin' },
+  { label: 'Mobil Uygulama', href: '/#mobile' },
+  { label: 'AI Merkezi', href: '/#ai' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'İletişim', href: '/#contact' },
 ];
 
 export default function Footer() {

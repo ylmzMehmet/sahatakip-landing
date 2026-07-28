@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronRight, MapPin } from 'lucide-react';
 
 const navLinks = [
-  { href: '#features', label: 'Özellikler' },
-  { href: '#sales', label: 'Satış & Operasyon' },
-  { href: '#admin', label: 'Admin Panel' },
-  { href: '#mobile', label: 'Mobil Uygulama' },
-  { href: '#ai', label: 'AI Merkezi' },
+  { href: '/#features', label: 'Özellikler' },
+  { href: '/#sales', label: 'Satış & Operasyon' },
+  { href: '/#admin', label: 'Admin Panel' },
+  { href: '/#mobile', label: 'Mobil Uygulama' },
+  { href: '/#ai', label: 'AI Merkezi' },
+  { href: '/blog', label: 'Blog' },
 ];
 
 export default function Navbar() {

@@ -15,4 +15,4 @@ COPY --from=build /app/dist ./dist
 
 EXPOSE 8080
 
-CMD ["sh", "-c", "serve -s dist -l ${PORT:-8080}"]
+CMD ["sh", "-c", "serve dist -l ${PORT:-8080}"]
